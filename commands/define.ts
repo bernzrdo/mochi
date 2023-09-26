@@ -76,7 +76,7 @@ async function getDefinition(word: string): Promise<InteractionReplyOptions> {
 
     // Gather information
 
-    let silabas = $('#resultados .titpalavra')?.textContent ?? $('#resultados .varpt')!.textContent!;
+    let silabas = $('#resultados .titpalavra')?.textContent ?? $('#resultados header h1 strong')!.textContent!;
     let url = `${request.protocol}//${request.host}${request.path}`;
 
     let img: string | null = null;
@@ -90,7 +90,7 @@ async function getDefinition(word: string): Promise<InteractionReplyOptions> {
 
     for(let $el of $('#resultados .dp-definicao')!.children){
 
-        console.log($el.outerHTML.replace($el.innerHTML, ''));
+        // console.log($el.outerHTML.replace($el.innerHTML, ''));
 
         if($el.matches('h4.varpt')){
             let str = `**${$el.querySelector('span')!.textContent}**`;
