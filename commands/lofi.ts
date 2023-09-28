@@ -7,7 +7,7 @@ export const data = new SlashCommandBuilder()
     .setName('lofi')
     .setDescription('Toco lofi hip hop no canal onde estás');
 
-export const experimental = true;
+const command = `</lofi:1156981890998349864>`;
 
 const player = createAudioPlayer();
 play.stream('https://www.youtube.com/watch?v=jfKfPfyJRdk').then(({ stream, type })=>{
@@ -24,6 +24,7 @@ export async function execute(interaction: ChatInputCommandInteraction){
 
     let connection = getVoiceConnection(interaction.guild!.id);
 
+    // No connection
     if(!connection){
 
         if(!channel){
@@ -56,14 +57,14 @@ export async function execute(interaction: ChatInputCommandInteraction){
                 await interaction.reply({ embeds: [ new EmbedBuilder()
                     .setColor(Colors.Error)
                     .setTitle('Estou noutro canal!')
-                    .setDescription('Só posso ir ao teu canal de voz tocar música quando alguém do meu decidir para a música.')
+                    .setDescription('Só posso ir ao teu canal de voz tocar música quando alguém do meu decidir parar a música.')
                 ], ephemeral: true });
                 return;
             }
 
         }
 
-        if(channel){
+        if(channel && myChannel.id != channel.id){
             joinChannel(interaction, channel);
             return;
         }
@@ -73,7 +74,7 @@ export async function execute(interaction: ChatInputCommandInteraction){
         await interaction.reply({ embeds: [ new EmbedBuilder()
             .setColor(Colors.Primary)
             .setTitle('Espero que tenhas gostado!')
-            .setDescription('Se precisares de mais música, é só enviares </lofi:1156723518562639994>.')
+            .setDescription(`Se precisares de mais música, é só enviares ${command}.`)
         ], ephemeral: true });
 
     }
@@ -94,7 +95,7 @@ async function joinChannel(interaction: ChatInputCommandInteraction, channel: Vo
         .setColor(Colors.Primary)
         .setAuthor({ name: 'Lofi Girl', 'iconURL': 'https://i.imgur.com/QBnVwy7.png', 'url': 'https://www.youtube.com/@LofiGirl' })
         .setTitle('lofi hip hop radio 📚 - beats to relax/study to')
-        .setDescription(`A tocar no canal de voz ${channel}\n_Usa </lofi:1156723518562639994> para parar de tocar._`)
+        .setDescription(`A tocar no canal de voz ${channel}\n_Usa ${command} para parar de tocar._`)
         .setImage('https://i3.ytimg.com/vi/jfKfPfyJRdk/maxresdefault.jpg')
     ]});
 

@@ -3,9 +3,6 @@ import { readdirSync } from 'fs';
 import { Command } from './global';
 import 'dotenv/config';
 
-const BERNZRDO = '412393476378853376';
-const LOADING_EMOJI = '<a:loading:1147083312410673292>';
-
 // ---------- START ----------
 
 const bot = new Client({ intents: [

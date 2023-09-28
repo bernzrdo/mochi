@@ -2,7 +2,7 @@ import { SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder, ActionR
 import { Colors } from './../global';
 import axios from 'axios';
 import { JSDOM } from 'jsdom';
-import { writeFileSync } from 'fs';
+import { Agent } from 'https';
 
 export const data = new SlashCommandBuilder()
     .setName('define')
@@ -19,7 +19,9 @@ function cantAdd(definition: string[], str: string): boolean {
 
 async function getDefinition(word: string): Promise<InteractionReplyOptions> {
 
-    let { status, data, request } = await axios.get(`https://dicionario.priberam.org/${word}`);
+    let { status, data, request } = await axios.get(`https://dicionario.priberam.org/${word}`, {
+        httpsAgent: new Agent({ rejectUnauthorized: false })
+    });
 
     if(status != 200){
         console.log({ word, status, data });
