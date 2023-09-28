@@ -1,4 +1,4 @@
-import { Client, Events } from 'discord.js';
+import { Client, Events, GatewayIntentBits } from 'discord.js';
 import { readdirSync } from 'fs';
 import { Command } from './global';
 import 'dotenv/config';
@@ -8,7 +8,10 @@ const LOADING_EMOJI = '<a:loading:1147083312410673292>';
 
 // ---------- START ----------
 
-const bot = new Client({ intents: [] });
+const bot = new Client({ intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildVoiceStates
+]});
 
 bot.once(Events.ClientReady, async ()=>{
     console.log('BOT: Ready!');
