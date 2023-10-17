@@ -50,7 +50,7 @@ async function getDefinition(word: string): Promise<InteractionReplyOptions> {
             .setTitle('Palavra não encontrada!')
             .setDescription(`Não encontrei a palavra **"${word}"** no dicionário.\nTalvez querias dizer uma destas palavras:`);
 
-        // Gater suggestions
+        // Gather suggestions
 
         let buttons: ButtonBuilder[] = [];
 

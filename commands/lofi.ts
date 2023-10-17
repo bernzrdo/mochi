@@ -9,15 +9,6 @@ export const data = new SlashCommandBuilder()
 
 const command = `</lofi:1156981890998349864>`;
 
-const player = createAudioPlayer();
-play.stream('https://www.youtube.com/watch?v=jfKfPfyJRdk').then(({ stream, type })=>{
-
-    const resource = createAudioResource(stream, { inputType: type });
-    player.play(resource);
-    player.on('error', e=>console.error(e));
-
-});
-
 export async function execute(interaction: ChatInputCommandInteraction){
 
     let channel = (interaction.member as GuildMember).voice.channel;
@@ -83,6 +74,13 @@ export async function execute(interaction: ChatInputCommandInteraction){
 
 async function joinChannel(interaction: ChatInputCommandInteraction, channel: VoiceBasedChannel ) {
     
+    const player = createAudioPlayer();
+    const { stream, type } = await play.stream('https://www.youtube.com/watch?v=jfKfPfyJRdk');
+
+    const resource = createAudioResource(stream, { inputType: type });
+    player.play(resource);
+    player.on('error', e=>console.error(e));
+
     const connection = joinVoiceChannel({
         channelId: channel.id,
         guildId: channel.guild.id,
