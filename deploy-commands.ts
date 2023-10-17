@@ -42,7 +42,15 @@ const rest = new REST().setToken(process.env.TOKEN!);
     console.log('Updating README...');
     
     let readme = [
-        '# <img src="https://i.imgur.com/N74BwjO.png" style="height: 1.2em; vertical-align: -20%;"> Mochi',
+        '<h1 align="center">',
+        '<img src="https://i.imgur.com/N74BwjO.png">',
+        '<br>',
+        'Mochi',
+        '</h1>',
+        '<p align="center">',
+        '<a href="https://discord.com/api/oauth2/authorize?client_id=1155666080925241364&permissions=0&scope=bot"><img src="https://img.shields.io/badge/Adicionar_ao_Servidor-5865F2?logo=discord&logoColor=fff" alt="Adicionar ao Servidor"></a>',
+        '<a href="https://discord.gg/SNazbqFubs"><img src="https://img.shields.io/badge/Entrar_no_Servidor-5865F2?logo=discord&logoColor=fff" alt="Entrar no Servidor"></a>',
+        '</p>',
         '',
         'O Mochi é um bot de Discord que adiciona comandos úteis a qualquer servidor! O que lhe distingue de outros bots, não é só ser 100% português de portugal, mas também a sua simplicidade.',
         '',
