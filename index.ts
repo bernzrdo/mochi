@@ -84,3 +84,34 @@ bot.on(Events.InteractionCreate, async interaction=>{
         await commands.find(c=>interaction.customId.startsWith(c.data.name + '-'))!.button!(interaction);
 
 });
+
+// ---------- NINHO NOTIFICATION ----------
+
+const BERNARDO = '412393476378853376';
+const CHICO = '1090332400652918934';
+
+bot.on(Events.VoiceStateUpdate, async (oldState, newState)=>{
+    
+    if(oldState.channelId != null) return;
+    if(newState.channelId != '1152997541898629140') return;
+    if(newState.channel!.members.size > 1) return;
+
+    let mention = `<@${ newState.id == BERNARDO ? CHICO : BERNARDO }>`;
+    let name = newState.id == BERNARDO ? 'bernardo' : 'chico';
+
+    let message = [
+        `o ${name} chegou`,
+        `o ${name} aguarda por ti`,
+        `cuidado diabéticos que o docinho chegou`,
+        `${name} procura macho (tu) para conversar`,
+        `um gajo gostoso está à tua espera`,
+        `o ${name} chama por ti`,
+        `o ${name} precisa da tua atenção`,
+        `o ${name} está a piar para vires para o ninho`,
+        `o ${name} está online`,
+        `o ${name} está na sua torre à espera de um cavaleiro que lhe salve`
+    ];
+
+    newState.channel!.send(`${mention} ${message[Math.floor(Math.random() * message.length)]}`);
+
+});
