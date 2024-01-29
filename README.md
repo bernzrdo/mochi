@@ -16,5 +16,4 @@ O Mochi é um bot de Discord que adiciona comandos úteis a qualquer servidor! O
 |**/countdown**|Mostra quanto tempo falta para uma data|[countdown.ts](https://github.com/bernzrdo/mochi/blob/main/commands/countdown.ts)
 |**/define**|Descobre a definição de uma palavra|[define.ts](https://github.com/bernzrdo/mochi/blob/main/commands/define.ts)
 |**/foto**|Obtem a foto de perfil de algúem|[foto.ts](https://github.com/bernzrdo/mochi/blob/main/commands/foto.ts)
-|**/lofi**|Toco lofi hip hop no canal onde estás|[lofi.ts](https://github.com/bernzrdo/mochi/blob/main/commands/lofi.ts)
 |**/pokemon**|Sabe mais sobre um Pokémon|[pokemon.ts](https://github.com/bernzrdo/mochi/blob/main/commands/pokemon.ts)
