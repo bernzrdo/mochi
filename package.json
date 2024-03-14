@@ -10,6 +10,7 @@
     "jsdom": "^22.1.0",
     "libsodium-wrappers": "^0.7.13",
     "mathjs": "^11.11.1",
-    "oakdex-pokedex": "^0.4.5"
+    "oakdex-pokedex": "^0.4.5",
+    "ts-node": "^10.9.2"
   }
 }
